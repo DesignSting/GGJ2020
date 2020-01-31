@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Area
+    uniqueID: 1728505801
+    locked: 0
+  - name: Resources
+    uniqueID: 877937445
+    locked: 0
+  - name: Directions
+    uniqueID: 2977127151
+    locked: 0
+  - name: Player
+    uniqueID: 3729052843
+    locked: 0

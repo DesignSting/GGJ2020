@@ -8,16 +8,28 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     private Vector2 moveVelocity;
+    private SpriteRenderer sr;
+
+    private float moveHorizontal;
+    private float moveVertical;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Update()
     {
-        Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        moveHorizontal = Input.GetAxis("Horizontal");
+        moveVertical = Input.GetAxis("Vertical");
+        Vector2 moveInput = new Vector2(moveHorizontal, moveVertical);
         moveVelocity = moveInput.normalized * speed;
+
+        var dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        
     }
 
     private void FixedUpdate()
