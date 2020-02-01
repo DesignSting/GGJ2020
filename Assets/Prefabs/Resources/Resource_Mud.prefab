@@ -57,7 +57,7 @@ MonoBehaviour:
   wetModifer: 0.5
   snowModifer: 0
   sunModifer: 1.5
-  baseTime: 2
+  baseTime: 4
   notInSun: 0
   notInWet: 0
   notInSnow: 1

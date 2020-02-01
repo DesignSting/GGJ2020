@@ -90,6 +90,7 @@ public class GameManager : MonoBehaviour
             totalTime += clips[rand].length;
             inQueue.Enqueue(clips[rand]);
         }
+        Debug.Log(totalTime);
         PlaySoundQueue();
     }
 
@@ -125,6 +126,10 @@ public class GameManager : MonoBehaviour
         {
             timer -= Time.deltaTime;
             countdownFG.fillAmount = timer / f;
+            if(!audioSource.isPlaying)
+            {
+                PlaySoundQueue();
+            }
 
             yield return null;
         }
@@ -142,6 +147,7 @@ public class GameManager : MonoBehaviour
     {
         if(timer > 0)
         {
+            
             if(!audioSource.isPlaying)
             {
                 PlaySoundQueue();
