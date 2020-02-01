@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3273199559378840160}
   - component: {fileID: 5105574958589177871}
   - component: {fileID: 5728855985678235991}
+  - component: {fileID: -5191028576355011004}
   m_Layer: 0
   m_Name: Resource_Wood
   m_TagString: Resource
@@ -54,6 +55,7 @@ MonoBehaviour:
   snowSprite: {fileID: 0}
   wetModifer: 0
   snowModifer: 0
+  baseTime: 0
 --- !u!212 &5728855985678235991
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -92,7 +94,7 @@ SpriteRenderer:
   m_SortingLayerID: 877937445
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e0b8a3826d585044487cc6ca1f044d3e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ef98604da54b46f4095f520dbcf0d766, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -103,3 +105,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &-5191028576355011004
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3758438433358349256}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.28, y: 1.28}
+    newSize: {x: 0.64, y: 0.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.28, y: 1.28}
+  m_EdgeRadius: 0
