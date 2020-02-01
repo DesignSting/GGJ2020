@@ -49,11 +49,11 @@ MonoBehaviour:
   timeToHarvest: 0
   currentWeather: {fileID: 0}
   canUse: 0
-  resource: 0
-  sunSprite: {fileID: 0}
-  wetSprite: {fileID: 0}
-  snowSprite: {fileID: 0}
-  harvestedSprite: {fileID: 0}
+  resource: 1
+  sunSprite: {fileID: 21300000, guid: 207a0466a98f47d44b8054f3141a96ca, type: 3}
+  wetSprite: {fileID: 21300000, guid: 6c6feacdd61fb3540a7af89515b019ae, type: 3}
+  snowSprite: {fileID: 21300000, guid: e6291b78cc3cd6c4bb9cf47f127c5c55, type: 3}
+  harvestedSprite: {fileID: 21300000, guid: b25ee8ebd306ac442b1a65eb5ce758df, type: 3}
   wetModifer: 0
   snowModifer: 0.5
   sunModifer: 1
@@ -99,7 +99,7 @@ SpriteRenderer:
   m_SortingLayerID: 877937445
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bbbadc54af795a34fa0b8675fa8f77bb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 207a0466a98f47d44b8054f3141a96ca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -127,7 +127,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
+    oldSize: {x: 1.92, y: 1.92}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
