@@ -13,6 +13,9 @@ public class StagingArea : MonoBehaviour
     private bool firstRollGood;
     private bool secondRollGood;
 
+    public Canvas diceRollCanvas;
+    public Canvas damCanvas;
+
     public void CheckDiceInput(TMP_InputField inputField)
     {
         string s = inputField.text;
@@ -57,8 +60,7 @@ public class StagingArea : MonoBehaviour
 
     private void Start()
     {
-        CheckStartButton();
-        inputField_01.Select();
-        inputField_02.interactable = false;
+        //diceRollCanvas.gameObject.SetActive(false);
+        //damCanvas.enabled = true;
     }
 }

@@ -22,10 +22,6 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public int woodResource;
-    public int mudResource;
-    public int berriesResource;
-
     public PlayerMovement player;
 
     [Space(20)]
@@ -43,9 +39,12 @@ public class GameManager : MonoBehaviour
     
     public void StartDay()
     {
-        Debug.Log(diceRoll_01 + " : " + diceRoll_02);
         SceneManager.LoadScene("MainScene");
-        FindObjectOfType<UIManager>().UpdateResources(woodResource, berriesResource, mudResource);
+    }
+
+    public void EndDay()
+    {
+        SceneManager.LoadScene("RollTheDiceScene");
     }
 
     public void CollectResource(float timeToCollect, Resource res)
@@ -93,6 +92,11 @@ public class GameManager : MonoBehaviour
         countdownBG.gameObject.SetActive(false);
         FindObjectOfType<UIManager>().UpdateResources(r);
         r.Harvested();
+    }
+
+    private void Start()
+    {
+        
     }
 }
 

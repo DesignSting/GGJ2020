@@ -9,9 +9,9 @@ public class UIManager : MonoBehaviour
     public TMP_Text woodAmountText;
     public TMP_Text mudAmountText;
     public TMP_Text berriesAmountText;
-    private int woodAmount;
-    private int mudAmount;
-    private int berriesAmount;
+    [SerializeField] private int woodAmount;
+    [SerializeField] private int mudAmount;
+    [SerializeField] private int berriesAmount;
 
     public TMP_Text timerText;
     public int totalTimeAllowed;
@@ -79,6 +79,6 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        timer = totalTimeAllowed;
+        
     }
 }

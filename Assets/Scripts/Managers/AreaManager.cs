@@ -32,6 +32,11 @@ public class AreaManager : MonoBehaviour
     public Sprite wetBackground;
     public Sprite snowBackground;
 
+    [Space(15)]
+    public AudioClip sunnyMusic;
+    public AudioClip wetMusic;
+    public AudioClip snowMusic;
+
     public void RecieveNewDay(Weather weather, int diceRoll)
     {
         currentWeather = weather;
@@ -190,14 +195,18 @@ public class AreaManager : MonoBehaviour
         {
             case Weather.Sun:
                 toSend =  sunBackground;
+                GetComponent<AudioSource>().clip = sunnyMusic;
                 break;
             case Weather.Wet:
                 toSend =  wetBackground;
+                GetComponent<AudioSource>().clip = wetMusic;
                 break;
             case Weather.Snow:
                 toSend = snowBackground;
+                GetComponent<AudioSource>().clip = snowMusic;
                 break;
         }
+        GetComponent<AudioSource>().Play();
         return toSend;
     }
 
