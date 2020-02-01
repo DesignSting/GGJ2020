@@ -34,6 +34,7 @@ public class PlayerAwareness : MonoBehaviour
         {
             canMove = true;
             canCollect = false;
+            currentResource = null;
         }
     }
 
@@ -49,15 +50,25 @@ public class PlayerAwareness : MonoBehaviour
 
     public void CollectResource()
     {
-
+        if(currentResource.ReturnCanUse())
+        {
+            StartCoroutine(Collect());
+        }
     }
 
     IEnumerator Collect()
     {
         isCollecting = true;
         float timer = 0.0f;
+        float timeToCollect = currentResource.timeToHarvest;
 
-        while( timer < )
+        while( timer < timeToCollect)
+        {
+            timer += Time.deltaTime;
+
+
+            yield return null;
+        }
 
 
         isCollecting = false;

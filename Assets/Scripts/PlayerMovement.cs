@@ -43,7 +43,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         isMoving = false;
-        yield return 0;
     }
 
     // Update is called once per frame

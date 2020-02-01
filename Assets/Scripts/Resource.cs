@@ -21,9 +21,26 @@ public class Resource : MonoBehaviour
     public float snowModifer;
     public float baseTime;
 
-    public void ApplyModifer()
+    public void ApplyModifer(Weather w)
     {
+        if(w == Weather.Snow)
+        {
+            timeToHarvest = baseTime * snowModifer;
+        }
+        else if (w == Weather.Wet)
+        {
+            timeToHarvest = baseTime * wetModifer;
+        }
+        else
+        {
+            timeToHarvest = baseTime;
+        }
 
+    }
+
+    public bool ReturnCanUse()
+    {
+        return canUse;
     }
 }
 
