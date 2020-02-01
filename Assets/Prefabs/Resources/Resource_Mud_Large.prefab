@@ -55,7 +55,7 @@ MonoBehaviour:
   snowSprite: {fileID: 0}
   wetModifer: 0
   snowModifer: 0
-  baseTime: 0
+  baseTime: 2
 --- !u!212 &3880924624560014780
 SpriteRenderer:
   m_ObjectHideFlags: 0
