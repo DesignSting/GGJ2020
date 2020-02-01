@@ -116,24 +116,6 @@ public class AreaManager : MonoBehaviour
             useableAreas.Add(areaList[7]);
             useableAreas.Add(areaList[3]);
         }
-
-        /**
-         * Testing Area
-         **/
-
-        //useableAreas.Add(areaList[7]);
-        //useableAreas.Add(areaList[6]);
-        //useableAreas.Add(areaList[10]);
-        //useableAreas.Add(areaList[11]);
-        //useableAreas.Add(areaList[9]);
-
-
-
-        /**
-         * Between here and above is my own list of areas, this will be done vias a switch or if statements
-         * 
-         * 
-         * */
         
         foreach (Area ua in useableAreas)
         {

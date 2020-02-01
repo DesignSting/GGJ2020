@@ -6,6 +6,7 @@ public class Area : MonoBehaviour
 {
     public Transform startingPos;
     public List<Resource> resourceList = new List<Resource>();
+    private List<WallScript> wallList = new List<WallScript>();
     public bool isUsed;
 
     [Space(15)]
@@ -36,6 +37,8 @@ public class Area : MonoBehaviour
         FindObjectOfType<AreaManager>().SetCurrentArea(this);
         Resource[] resArray = GetComponentsInChildren<Resource>();
         resourceList = new List<Resource>(resArray);
+        WallScript[] wallArray = GetComponentsInChildren<WallScript>();
+        wallList = new List<WallScript>(wallArray);
 
        if(north != null)
         {
@@ -63,6 +66,11 @@ public class Area : MonoBehaviour
         foreach (Resource r in resourceList)
         {
             r.ApplyModifer(currentWeather);
+        }
+
+        foreach (WallScript ws in wallList)
+        {
+            ws.ChangeWeather(currentWeather);
         }
     }
 

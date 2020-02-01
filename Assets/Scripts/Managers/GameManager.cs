@@ -36,7 +36,14 @@ public class GameManager : MonoBehaviour
     public Image countdownBG;
     public Image countdownFG;
 
-    
+    [Space(15)]
+    public List<AudioClip> woodChomps = new List<AudioClip>();
+    public List<AudioClip> mudSlops = new List<AudioClip>();
+    public List<AudioClip> bushRushel = new List<AudioClip>();
+    private AudioSource audioSource;
+    private Queue<AudioClip> inQueue = new Queue<AudioClip>();
+
+
     public void StartDay()
     {
         SceneManager.LoadScene("MainScene");
@@ -74,13 +81,46 @@ public class GameManager : MonoBehaviour
         return diceRoll_02;
     }
 
+    public void SetUpHarvestSounds(float timeTaken, List<AudioClip> clips)
+    {
+        float totalTime = 0.0f;
+        while (totalTime < timeTaken)
+        {
+            int rand = Random.Range(0, clips.Count);
+            totalTime += clips[rand].length;
+            inQueue.Enqueue(clips[rand]);
+        }
+        PlaySoundQueue();
+    }
+
+    private void PlaySoundQueue()
+    {
+        audioSource.clip = inQueue.Dequeue();
+        audioSource.Play();
+    }
+
     IEnumerator Collect(float f, Resource r)
     {
-        Debug.Log("Collect");
         countdownBG.gameObject.SetActive(true);
         Debug.Log(countdownBG.isActiveAndEnabled);
         float timer = f;
         FindObjectOfType<PlayerMovement>().SetPlayerLocked(true);
+
+        List<AudioClip> harvestSoundList = new List<AudioClip>();
+        switch (r.resource)
+        {
+            case TypeResource.Wood:
+                harvestSoundList = woodChomps;
+                break;
+            case TypeResource.Berries:
+                harvestSoundList = bushRushel;
+                break;
+            case TypeResource.Mud:
+                harvestSoundList = mudSlops;
+                break;
+        }
+        SetUpHarvestSounds(f, harvestSoundList);
+
         while (timer > 0)
         {
             timer -= Time.deltaTime;
@@ -92,11 +132,26 @@ public class GameManager : MonoBehaviour
         countdownBG.gameObject.SetActive(false);
         FindObjectOfType<UIManager>().UpdateResources(r);
         r.Harvested();
+        if(inQueue.Count > 0)
+        {
+            inQueue.Clear();
+        }
+    }
+
+    private void Update()
+    {
+        if(timer > 0)
+        {
+            if(!audioSource.isPlaying)
+            {
+                PlaySoundQueue();
+            }
+        }
     }
 
     private void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 }
 
