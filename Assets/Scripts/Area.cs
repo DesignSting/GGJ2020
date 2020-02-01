@@ -54,9 +54,14 @@ public class Area : MonoBehaviour
 
         foreach(Resource r in resourceList)
         {
-            switch(currentWeather)
+            switch (currentWeather)
             {
-
+                case Weather.Sun:
+                    break;
+                case Weather.Wet:
+                    break;
+                case Weather.Snow:
+                    break;
             }
             r.ApplyModifer(currentWeatherTesting);
         }
@@ -102,22 +107,22 @@ public class Area : MonoBehaviour
             case Direction.North:
                 startingPos = southArrowSprite.transform;
                 Debug.Log("Starting Pos: " + startingPos);
-                southArrowSprite.GetComponent<TransitionBetweenAreas>().DisablePoint();
+                //southArrowSprite.GetComponentInChildren<TransitionBetweenAreas>().DisablePoint();
                 break;
             case Direction.East:
                 startingPos = westArrowSprite.transform;
                 Debug.Log("Starting Pos: " + startingPos);
-                westArrowSprite.GetComponent<TransitionBetweenAreas>().DisablePoint();
+                //westArrowSprite.GetComponentInChildren<TransitionBetweenAreas>().DisablePoint();
                 break;
             case Direction.South:
                 startingPos = northArrowSprite.transform;
                 Debug.Log("Starting Pos: " + startingPos);
-                northArrowSprite.GetComponent<TransitionBetweenAreas>().DisablePoint();
+                //northArrowSprite.GetComponentInChildren<TransitionBetweenAreas>().DisablePoint();
                 break;
             case Direction.West:
                 startingPos = eastArrowSprite.transform;
                 Debug.Log("Starting Pos: " + startingPos);
-                eastArrowSprite.GetComponent<TransitionBetweenAreas>().DisablePoint();
+                //eastArrowSprite.GetComponentInChildren<TransitionBetweenAreas>().DisablePoint();
                 break;
         }
         gameObject.SetActive(this);

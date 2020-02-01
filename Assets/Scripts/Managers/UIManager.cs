@@ -15,7 +15,7 @@ public class UIManager : MonoBehaviour
 
     public TMP_Text timerText;
     public int totalTimeAllowed;
-    private float timer;
+    public float timer;
     public bool startTimer;
 
     private void Update()
@@ -23,7 +23,7 @@ public class UIManager : MonoBehaviour
         if (startTimer)
         {
             timer -= Time.deltaTime;
-            DisplayTimeRemaining(totalTimeAllowed);
+            DisplayTimeRemaining(timer);
         }
     }
 
@@ -67,8 +67,13 @@ public class UIManager : MonoBehaviour
         woodAmount = wood;
         berriesAmount = berries;
         mudAmount = mud;
-        woodAmountText.text = woodAmount.ToString();
-        berriesAmountText.text = berriesAmount.ToString();
-        mudAmountText.text = mudAmount.ToString();
+        woodAmountText.text = woodAmount.ToString("000");
+        berriesAmountText.text = berriesAmount.ToString("000");
+        mudAmountText.text = mudAmount.ToString("000");
+    }
+
+    private void Start()
+    {
+        timer = totalTimeAllowed;
     }
 }

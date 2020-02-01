@@ -53,9 +53,14 @@ MonoBehaviour:
   sunSprite: {fileID: 0}
   wetSprite: {fileID: 0}
   snowSprite: {fileID: 0}
+  harvestedSprite: {fileID: 0}
   wetModifer: 0
-  snowModifer: 0
-  baseTime: 0
+  snowModifer: 0.5
+  sunModifer: 1
+  baseTime: 2
+  notInSun: 0
+  notInWet: 1
+  notInSnow: 0
 --- !u!212 &2951115432353480786
 SpriteRenderer:
   m_ObjectHideFlags: 0

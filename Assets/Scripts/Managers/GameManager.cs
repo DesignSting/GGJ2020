@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     {
         if(Instance != null)
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
         else
         {
@@ -25,12 +25,17 @@ public class GameManager : MonoBehaviour
     public int woodResource;
     public int mudResource;
     public int berriesResource;
-    public TMP_InputField inputField;
+    public TMP_InputField inputField_01;
+    public TMP_InputField inputField_02;
+    public Button startButton;
     public PlayerMovement player;
 
     [Space(20)]
     [SerializeField] private float timer;
-    [SerializeField] private int diceRoll;
+    [SerializeField] private int diceRoll_01;
+    [SerializeField] private int diceRoll_02;
+    private bool firstRollGood;
+    private bool secondRollGood;
     private bool newDay;
     public Image countdownBG;
     public Image countdownFG;
@@ -43,20 +48,46 @@ public class GameManager : MonoBehaviour
         int dice = int.Parse(s);
         if (dice > 0 && dice <= 20)
         {
-            diceRoll = dice;
-            StartDay(dice);
+            if(inputField == inputField_01)
+            {
+                diceRoll_01 = dice;
+                firstRollGood = true;
+                inputField_02.interactable = true;
+                inputField_02.Select();
+            }
+            if(inputField == inputField_02)
+            {
+                diceRoll_02 = dice;
+                secondRollGood = true;
+                startButton.Select();
+            }
+            inputField.text = "SUBMITTED";
+            inputField.interactable = false;
+
         }
         else
         {
-            inputField.Select();
-            inputField.text = "INVALID NUMBER";
+            inputField.text = "INVALID";
+        }
+        CheckStartButton();
+    }
+
+    private void CheckStartButton()
+    {
+        if(firstRollGood && secondRollGood)
+        {
+            startButton.interactable = true;
+        }
+        else
+        {
+            startButton.interactable = false;
         }
     }
 
-    private void StartDay(int diceRoll)
+    public void StartDay()
     {
-        player.gameObject.SetActive(true);
-        SceneManager.LoadScene("MainScene_Testing");
+        Debug.Log(diceRoll_01 + " : " + diceRoll_02);
+        SceneManager.LoadScene("MainScene_Test");
         FindObjectOfType<UIManager>().UpdateResources(woodResource, berriesResource, mudResource);
     }
 
@@ -67,9 +98,14 @@ public class GameManager : MonoBehaviour
         StartCoroutine(Collect(timeToCollect));
     }
 
-    public int ReturnDiceRoll()
+    public int ReturnFirstDiceRoll()
     {
-        return diceRoll;
+        return diceRoll_01;
+    }
+
+    public int ReturnSecondDiceRoll()
+    {
+        return diceRoll_02;
     }
 
     IEnumerator Collect(float f)
@@ -91,6 +127,12 @@ public class GameManager : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        CheckStartButton();
+        inputField_01.Select();
+        inputField_02.interactable = false;
+    }
 }
 
 public enum Weather
