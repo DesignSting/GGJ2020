@@ -8,6 +8,7 @@ public class Resource : MonoBehaviour
     public float timeToHarvest;
     public Sprite currentWeather;
     [SerializeField] private bool canUse;
+    [SerializeField] private bool harvested;
     
     public TypeResource resource;
 
@@ -30,19 +31,27 @@ public class Resource : MonoBehaviour
 
     public void ApplyModifer(Weather w)
     {
-        if (!canUse)
+        if (harvested)
         {
             GetComponent<SpriteRenderer>().sprite = harvestedSprite;
             return;
         }
         if (w == Weather.Snow)
         {
-            timeToHarvest = baseTime * snowModifer;
+            if (resource == TypeResource.Mud)
+                canUse = false;
+            else
+                timeToHarvest = baseTime * snowModifer;
+
             GetComponent<SpriteRenderer>().sprite = snowSprite;
         }
         else if (w == Weather.Wet)
         {
-            timeToHarvest = baseTime * wetModifer;
+            if (resource == TypeResource.Berries)
+                canUse = false;
+            else
+                timeToHarvest = baseTime * wetModifer;
+
             GetComponent<SpriteRenderer>().sprite = wetSprite;
         }
         else
@@ -55,7 +64,11 @@ public class Resource : MonoBehaviour
     public void Harvested()
     {
         GetComponent<SpriteRenderer>().sprite = harvestedSprite;
-        canUse = false;
+        harvested = true;
+        if(resource == TypeResource.Berries)
+        {
+            GetComponent<BoxCollider2D>().enabled = false;
+        }
     }
 
     public void ResetCanUse()

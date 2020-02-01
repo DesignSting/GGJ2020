@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class StagingArea : MonoBehaviour
 {
@@ -58,8 +59,14 @@ public class StagingArea : MonoBehaviour
         }
     }
 
+    public void StartDay()
+    {
+        SceneManager.LoadScene("MainScene");
+    }
+
     private void Start()
     {
+
         //diceRollCanvas.gameObject.SetActive(false);
         //damCanvas.enabled = true;
     }

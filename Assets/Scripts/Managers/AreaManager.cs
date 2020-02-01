@@ -130,6 +130,7 @@ public class AreaManager : MonoBehaviour
             }
         }
         FindObjectOfType<PlayerMovement>().GetComponent<SpriteRenderer>().enabled = true;
+        FindObjectOfType<PlayerMovement>().SetPlayerLocked(false);
         useableAreas[0].gameObject.SetActive(true);
         FindObjectOfType<UIManager>().StartRound();
     }
@@ -177,24 +178,38 @@ public class AreaManager : MonoBehaviour
         {
             case Weather.Sun:
                 toSend =  sunBackground;
-                GetComponent<AudioSource>().clip = sunnyMusic;
                 break;
             case Weather.Wet:
                 toSend =  wetBackground;
-                GetComponent<AudioSource>().clip = wetMusic;
                 break;
             case Weather.Snow:
                 toSend = snowBackground;
+                break;
+        }
+        return toSend;
+    }
+
+    public void PlayBackgroundMusic()
+    {
+        switch (currentWeather)
+        {
+            case Weather.Sun:
+                GetComponent<AudioSource>().clip = sunnyMusic;
+                break;
+            case Weather.Wet:
+                GetComponent<AudioSource>().clip = wetMusic;
+                break;
+            case Weather.Snow:
                 GetComponent<AudioSource>().clip = snowMusic;
                 break;
         }
         GetComponent<AudioSource>().Play();
-        return toSend;
     }
 
     private void Start()
     {
         currentWeather = DecideWeather();
+        PlayBackgroundMusic();
         theFirstDiceRoll = GameManager.Instance.ReturnFirstDiceRoll();
         theSecondDiceRoll = GameManager.Instance.ReturnSecondDiceRoll();
         PopulateList(theFirstDiceRoll);

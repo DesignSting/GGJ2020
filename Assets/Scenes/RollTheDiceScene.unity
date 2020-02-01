@@ -1709,7 +1709,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4253618591745099579}
+      - m_Target: {fileID: 204100391}
         m_MethodName: StartDay
         m_Mode: 1
         m_Arguments:
@@ -1988,18 +1988,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2017069736}
   m_CullTransparentMesh: 0
---- !u!114 &4253618591745099579 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6141104980762151463, guid: fd44d9f151f3dfe46aa49e6bf8ce6c05,
-    type: 3}
-  m_PrefabInstance: {fileID: 7943916414711303452}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a43d7e3f7cbc91c478b4bf7cd1ff0183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &7943916414711303452
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2066,6 +2054,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameManager_PLUS
+      objectReference: {fileID: 0}
+    - target: {fileID: 7943916414695702031, guid: fd44d9f151f3dfe46aa49e6bf8ce6c05,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd44d9f151f3dfe46aa49e6bf8ce6c05, type: 3}

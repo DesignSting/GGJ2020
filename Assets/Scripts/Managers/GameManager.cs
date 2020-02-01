@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     public Image countdownFG;
 
     [Space(15)]
+    private bool harvesting;
     public List<AudioClip> woodChomps = new List<AudioClip>();
     public List<AudioClip> mudSlops = new List<AudioClip>();
     public List<AudioClip> bushRushel = new List<AudioClip>();
@@ -44,14 +45,20 @@ public class GameManager : MonoBehaviour
     private Queue<AudioClip> inQueue = new Queue<AudioClip>();
 
 
-    public void StartDay()
-    {
-        SceneManager.LoadScene("MainScene");
-    }
+    private bool endedDay;
 
     public void EndDay()
     {
-        SceneManager.LoadScene("RollTheDiceScene");
+        if (harvesting)
+        {
+            endedDay = true;
+        }
+        else
+        {
+            SceneManager.LoadScene("RollTheDiceScene");
+            player.GetComponent<SpriteRenderer>().enabled = false;
+            player.SetPlayerLocked(true);
+        }
     }
 
     public void CollectResource(float timeToCollect, Resource res)
@@ -106,6 +113,7 @@ public class GameManager : MonoBehaviour
         Debug.Log(countdownBG.isActiveAndEnabled);
         float timer = f;
         FindObjectOfType<PlayerMovement>().SetPlayerLocked(true);
+        harvesting = true;
 
         List<AudioClip> harvestSoundList = new List<AudioClip>();
         switch (r.resource)
@@ -137,6 +145,7 @@ public class GameManager : MonoBehaviour
         countdownBG.gameObject.SetActive(false);
         FindObjectOfType<UIManager>().UpdateResources(r);
         r.Harvested();
+        harvesting = false;
         if(inQueue.Count > 0)
         {
             inQueue.Clear();
@@ -145,12 +154,12 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(timer > 0)
+        if(endedDay)
         {
-            
-            if(!audioSource.isPlaying)
+            if(!harvesting)
             {
-                PlaySoundQueue();
+                endedDay = false;
+                EndDay();
             }
         }
     }

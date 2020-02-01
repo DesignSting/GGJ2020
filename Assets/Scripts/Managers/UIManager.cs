@@ -17,6 +17,11 @@ public class UIManager : MonoBehaviour
     public int totalTimeAllowed;
     public float timer;
     public bool startTimer;
+    [SerializeField] private PlayerMovement player;
+    [SerializeField] private Transform botPos;
+    [SerializeField] private Vector3 playerPos;
+    [SerializeField] private Vector3 UIPos;
+    [SerializeField] float dist;
 
     private void Update()
     {
@@ -24,7 +29,22 @@ public class UIManager : MonoBehaviour
         {
             timer -= Time.deltaTime;
             DisplayTimeRemaining(timer);
+            if(timer < 0)
+            {
+                GameManager.Instance.EndDay();
+                startTimer = false;
+            }
+
+            float x = player.transform.position.x;
+            playerPos = new Vector3(x, player.transform.position.y, 0.0f);
+            UIPos = new Vector3(x, UIPos.y, 0.0f);
+            dist = Vector3.Distance(playerPos, UIPos);
+            if (dist < 100)
+            {
+                Debug.Log("TELL ME!!");
+            }
         }
+        
     }
 
     public void StartRound()
@@ -80,5 +100,6 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         UpdateResources();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
     }
 }

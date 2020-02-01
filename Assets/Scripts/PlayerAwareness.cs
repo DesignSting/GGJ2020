@@ -18,7 +18,8 @@ public class PlayerAwareness : MonoBehaviour
         if(other.tag == "Resource")
         {
             canMove = false;
-            canCollect = true;
+            if (other.GetComponent<Resource>().ReturnCanUse())
+                canCollect = true;
             currentResource = other.GetComponent<Resource>();
         }
     }
