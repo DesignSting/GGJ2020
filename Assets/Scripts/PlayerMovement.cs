@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private Direction currentDir;
     private Vector2 input;
-    private bool isMoving;
+    [SerializeField] private bool isMoving;
     private Vector3 startPos;
     private Vector3 endPos;
     private float t;
@@ -51,6 +51,14 @@ public class PlayerMovement : MonoBehaviour
     public void SetPlayerLocked(bool b)
     {
         playerLocked = b;
+        if (!b)
+        {
+            isMoving = false;
+        }
+        else
+        {
+            StopAllCoroutines();
+        }
     }
 
     public void CheckCurrentDirection()
