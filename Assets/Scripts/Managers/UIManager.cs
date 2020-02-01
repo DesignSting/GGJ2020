@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
-using System;
 
 public class UIManager : MonoBehaviour
 {
     public TMP_Text woodAmountText;
     public TMP_Text mudAmountText;
     public TMP_Text berriesAmountText;
+    public Image UIBanner;
     [SerializeField] private int woodAmount;
     [SerializeField] private int mudAmount;
     [SerializeField] private int berriesAmount;
@@ -18,10 +19,14 @@ public class UIManager : MonoBehaviour
     public float timer;
     public bool startTimer;
     [SerializeField] private PlayerMovement player;
-    [SerializeField] private Transform botPos;
     [SerializeField] private Vector3 playerPos;
-    [SerializeField] private Vector3 UIPos;
     [SerializeField] float dist;
+    [SerializeField] bool isTop;
+    public AudioClip tick;
+    public AudioClip horn;
+    private AudioSource audioSource;
+    private float tickTimer;
+    private int tickCounter;
 
     private void Update()
     {
@@ -35,22 +40,81 @@ public class UIManager : MonoBehaviour
                 startTimer = false;
             }
 
-            float x = player.transform.position.x;
-            playerPos = new Vector3(x, player.transform.position.y, 0.0f);
-            UIPos = new Vector3(x, UIPos.y, 0.0f);
-            dist = Vector3.Distance(playerPos, UIPos);
-            if (dist < 100)
+            playerPos = Camera.main.WorldToScreenPoint( new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z) );
+
+            dist = playerPos.y / Screen.height;
+            if(isTop)
             {
-                Debug.Log("TELL ME!!");
+                if(dist > 0.7f)
+                {
+                    FlipUI();
+                    isTop = false;
+                }
+            }
+            else
+            {
+                if(dist < 0.3f)
+                {
+                    FlipUI();
+                    isTop = true;
+                }
+            }
+            if(timer < 60 && timer > 57.5)
+            {
+                if(tickCounter < 5)
+                {
+                    tickTimer += Time.deltaTime;
+                    if(tickTimer > 0.5)
+                    {
+                        audioSource.Play();
+                        tickTimer = 0;
+                        tickCounter++;
+                    }
+                    if (tickCounter == 5 && timer < 57.5)
+                    {
+                        tickCounter = 0;
+                        tickTimer = 0;
+                    }
+                }
+            }
+
+            if(timer < 11)
+            {
+                tickTimer += Time.deltaTime;
+                if (tickTimer > 1)
+                {
+                    audioSource.Play();
+                    tickTimer = 0;
+                }
             }
         }
         
+    }
+
+    public void FlipUI()
+    {
+        float newPos = 1 - (UIBanner.transform.position.y / Screen.height);
+        UIBanner.transform.position = new Vector3(UIBanner.transform.position.x, newPos * Screen.height, UIBanner.transform.position.z);
+        newPos = 1 - (woodAmountText.transform.position.y / Screen.height);
+        woodAmountText.transform.position = new Vector3(woodAmountText.transform.position.x, newPos * Screen.height, woodAmountText.transform.position.z);
+        UIBanner.transform.Rotate(0, 0, 180);
     }
 
     public void StartRound()
     {
         timer = totalTimeAllowed;
         startTimer = true;
+        tickCounter = 0;
+    }
+
+    public void EndRound()
+    {
+        if(!isTop)
+        {
+            FlipUI();
+        }
+        audioSource.clip = horn;
+        audioSource.Play();
     }
 
     private void DisplayTimeRemaining(float timer)
@@ -61,6 +125,7 @@ public class UIManager : MonoBehaviour
         int seconds = Mathf.FloorToInt(temp);
         string time = minutes.ToString() + ":" + seconds.ToString("00");
         timerText.text = time;
+        
     }
 
     public void UpdateResources(Resource r)
@@ -101,5 +166,8 @@ public class UIManager : MonoBehaviour
     {
         UpdateResources();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        isTop = true;
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = tick;
     }
 }

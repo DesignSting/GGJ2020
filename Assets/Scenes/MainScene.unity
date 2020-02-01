@@ -1087,6 +1087,11 @@ PrefabInstance:
       propertyPath: Loop
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4566465679883970488, guid: 228559334b78e0d40b899d8defdd1fcf,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 8438156793629148076, guid: 228559334b78e0d40b899d8defdd1fcf,
         type: 3}
       propertyPath: areaList.Array.data[0]

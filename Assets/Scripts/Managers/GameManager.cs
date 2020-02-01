@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("RollTheDiceScene");
             player.GetComponent<SpriteRenderer>().enabled = false;
             player.SetPlayerLocked(true);
+            FindObjectOfType<UIManager>().EndRound();
         }
     }
 
