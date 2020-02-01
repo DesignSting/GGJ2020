@@ -21,15 +21,20 @@ public class AreaManager : MonoBehaviour
 
     public List<Area> areaList = new List<Area>();
     public List<Area> useableAreas = new List<Area>();
-    private Weather theWeather;
+    private Weather currentWeather;
     private int theFirstDiceRoll;
     private int theSecondDiceRoll;
     [SerializeField] private Area previousArea;
     [SerializeField] private Area currentArea;
 
+    [Space(15)]
+    public Sprite sunBackground;
+    public Sprite wetBackground;
+    public Sprite snowBackground;
+
     public void RecieveNewDay(Weather weather, int diceRoll)
     {
-        theWeather = weather;
+        currentWeather = weather;
         Debug.Log("Weather: " + weather + "\nDice Roll: " + diceRoll);
         
     }
@@ -127,7 +132,19 @@ public class AreaManager : MonoBehaviour
         foreach (Area ua in useableAreas)
         {
             ua.isUsed = true;
-            
+            //switch (currentWeather)
+            //{
+            //    case Weather.Sun:
+            //        GameObject.Find(ua.name + "/Background").GetComponent<SpriteRenderer>().sprite = sunBackground;
+            //        break;
+            //    case Weather.Wet:
+            //        GameObject.Find(ua.name + "/Background").GetComponent<SpriteRenderer>().sprite = wetBackground;
+            //        break;
+            //    case Weather.Snow:
+            //        GameObject.Find(ua.name + "/Background").GetComponent<SpriteRenderer>().sprite = snowBackground;
+            //        break;
+            //}
+
         }
         foreach(Area ua in useableAreas)
         {
@@ -174,12 +191,12 @@ public class AreaManager : MonoBehaviour
 
     public Weather ReturnCurrentWeather()
     {
-        return theWeather;
+        return currentWeather;
     }
 
     private void Start()
     {
-        theWeather = DecideWeather();
+        currentWeather = DecideWeather();
         theFirstDiceRoll = GameManager.Instance.ReturnFirstDiceRoll();
         theSecondDiceRoll = GameManager.Instance.ReturnSecondDiceRoll();
         PopulateList(theFirstDiceRoll);

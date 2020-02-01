@@ -24,6 +24,7 @@ public class Area : MonoBehaviour
     public Sprite boulderSprite;
     public Sprite fallenTreeSprite;
 
+
     public Weather currentWeatherTesting = Weather.Snow;
     public Weather currentWeather;
 
@@ -33,7 +34,8 @@ public class Area : MonoBehaviour
         if(startingPos != null)
             playerObject.transform.position = startingPos.position;
         FindObjectOfType<AreaManager>().SetCurrentArea(this);
-        //AreaManager.Instance.SetCurrentArea(this);
+        Resource[] resArray = GetComponentsInChildren<Resource>();
+        resourceList = new List<Resource>(resArray);
 
        if(north != null)
         {
@@ -52,18 +54,13 @@ public class Area : MonoBehaviour
             westArrowSprite.GetComponentInChildren<TransitionBetweenAreas>().AddAreaToSprite(west, Direction.West);
         }
 
-        foreach(Resource r in resourceList)
+        currentWeather = AreaManager.Instance.ReturnCurrentWeather();
+
+        
+
+        foreach (Resource r in resourceList)
         {
-            switch (currentWeather)
-            {
-                case Weather.Sun:
-                    break;
-                case Weather.Wet:
-                    break;
-                case Weather.Snow:
-                    break;
-            }
-            r.ApplyModifer(currentWeatherTesting);
+            r.ApplyModifer(currentWeather);
         }
     }
 
@@ -107,22 +104,18 @@ public class Area : MonoBehaviour
             case Direction.North:
                 startingPos = southArrowSprite.transform;
                 Debug.Log("Starting Pos: " + startingPos);
-                //southArrowSprite.GetComponentInChildren<TransitionBetweenAreas>().DisablePoint();
                 break;
             case Direction.East:
                 startingPos = westArrowSprite.transform;
                 Debug.Log("Starting Pos: " + startingPos);
-                //westArrowSprite.GetComponentInChildren<TransitionBetweenAreas>().DisablePoint();
                 break;
             case Direction.South:
                 startingPos = northArrowSprite.transform;
                 Debug.Log("Starting Pos: " + startingPos);
-                //northArrowSprite.GetComponentInChildren<TransitionBetweenAreas>().DisablePoint();
                 break;
             case Direction.West:
                 startingPos = eastArrowSprite.transform;
                 Debug.Log("Starting Pos: " + startingPos);
-                //eastArrowSprite.GetComponentInChildren<TransitionBetweenAreas>().DisablePoint();
                 break;
         }
         gameObject.SetActive(this);

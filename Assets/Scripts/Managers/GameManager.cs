@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
     public void StartDay()
     {
         Debug.Log(diceRoll_01 + " : " + diceRoll_02);
-        SceneManager.LoadScene("MainScene_Test");
+        SceneManager.LoadScene("MainScene");
         FindObjectOfType<UIManager>().UpdateResources(woodResource, berriesResource, mudResource);
     }
 
@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
     {
         Vector3 toScreen = Camera.main.WorldToScreenPoint(res.transform.position);
         countdownBG.transform.position = toScreen;
-        StartCoroutine(Collect(timeToCollect));
+        StartCoroutine(Collect(timeToCollect, res));
     }
 
     public int ReturnFirstDiceRoll()
@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
         return diceRoll_02;
     }
 
-    IEnumerator Collect(float f)
+    IEnumerator Collect(float f, Resource r)
     {
         Debug.Log("Collect");
         countdownBG.gameObject.SetActive(true);
@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviour
         }
         FindObjectOfType<PlayerMovement>().SetPlayerLocked(false);
         countdownBG.gameObject.SetActive(false);
-
+        r.Harvested();
     }
 
     private void Start()

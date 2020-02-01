@@ -33,16 +33,25 @@ public class Resource : MonoBehaviour
         if(w == Weather.Snow)
         {
             timeToHarvest = baseTime * snowModifer;
+            GetComponent<SpriteRenderer>().sprite = snowSprite;
         }
         else if (w == Weather.Wet)
         {
             timeToHarvest = baseTime * wetModifer;
+            GetComponent<SpriteRenderer>().sprite = wetSprite;
         }
         else
         {
             timeToHarvest = baseTime * sunModifer;
+            GetComponent<SpriteRenderer>().sprite = sunSprite;
         }
 
+    }
+
+    public void Harvested()
+    {
+        GetComponent<SpriteRenderer>().sprite = harvestedSprite;
+        canUse = false;
     }
 
     public bool ReturnCanUse()

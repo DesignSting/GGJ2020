@@ -6,7 +6,6 @@ public class TransitionBetweenAreas : MonoBehaviour
 {
     [SerializeField] private Area nextArea;
     private bool withinRange;
-    [SerializeField] private bool disabled;
     [SerializeField] private Direction direction;
 
     [SerializeField] private float timer;
@@ -15,11 +14,6 @@ public class TransitionBetweenAreas : MonoBehaviour
     {
         nextArea = a;
         direction = d;
-    }
-
-    public void DisablePoint()
-    {
-        disabled = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,16 +30,12 @@ public class TransitionBetweenAreas : MonoBehaviour
         {
             withinRange = false;
             timer = 0;
-            if(disabled)
-            {
-                disabled = false;
-            }
         }
     }
 
     private void Update()
     {
-        if(withinRange && !disabled)
+        if(withinRange)
         {
             timer += Time.deltaTime;
 
