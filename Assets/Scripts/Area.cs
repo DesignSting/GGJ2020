@@ -23,6 +23,8 @@ public class Area : MonoBehaviour
     public Sprite boulderSprite;
     public Sprite fallenTreeSprite;
 
+    public Weather currentWeatherTesting = Weather.Snow;
+
     private void OnEnable()
     {
         GameObject playerObject = GameObject.Find("Player");
@@ -45,6 +47,11 @@ public class Area : MonoBehaviour
         if (west != null)
         {
             westArrowSprite.GetComponent<TransitionBetweenAreas>().AddAreaToSprite(west, Direction.West);
+        }
+
+        foreach(Resource r in resourceList)
+        {
+            r.ApplyModifer(currentWeatherTesting);
         }
     }
 

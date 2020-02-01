@@ -76,7 +76,6 @@ public class GameManager : MonoBehaviour
 
     public void CollectResource(float timeToCollect, Resource res)
     {
-        Debug.Log(timeToCollect + " : " + res.transform.position);
         Vector3 toScreen = Camera.main.WorldToScreenPoint(res.transform.position);
         countdownBG.transform.position = toScreen;
         StartCoroutine(Collect(timeToCollect));
