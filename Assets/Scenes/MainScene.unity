@@ -549,6 +549,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 69377534}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &69377536 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6868813467453624415, guid: 15d1e25dabc8cdf4c947bb206556aa01,
+    type: 3}
+  m_PrefabInstance: {fileID: 69377534}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &75536290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -621,6 +627,12 @@ PrefabInstance:
 --- !u!4 &75536291 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1228972431103887945, guid: 108fff16b0621974d8abd9fcf9611e89,
+    type: 3}
+  m_PrefabInstance: {fileID: 75536290}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &75536292 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3151756683516826927, guid: 108fff16b0621974d8abd9fcf9611e89,
     type: 3}
   m_PrefabInstance: {fileID: 75536290}
   m_PrefabAsset: {fileID: 0}
@@ -1033,14 +1045,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingPos: {fileID: 0}
   resourceList: []
-  north: {fileID: 0}
+  north: {fileID: 866562643}
   east: {fileID: 0}
-  south: {fileID: 0}
-  west: {fileID: 0}
-  northArrowSprite: {fileID: 0}
+  south: {fileID: 1291795534}
+  west: {fileID: 1232964597}
+  northArrowSprite: {fileID: 973625358}
   eastArrowSprite: {fileID: 0}
-  southArrowSprite: {fileID: 0}
-  westArrowSprite: {fileID: 0}
+  southArrowSprite: {fileID: 1193241519}
+  westArrowSprite: {fileID: 590138827}
   boulderSprite: {fileID: 0}
   fallenTreeSprite: {fileID: 0}
 --- !u!4 &180206211
@@ -1134,6 +1146,12 @@ PrefabInstance:
 --- !u!4 &201787557 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1477201637760152814, guid: b7afa17ef4c2f724faabe2a013eb5c64,
+    type: 3}
+  m_PrefabInstance: {fileID: 201787556}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &201787558 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6538789063795771638, guid: b7afa17ef4c2f724faabe2a013eb5c64,
     type: 3}
   m_PrefabInstance: {fileID: 201787556}
   m_PrefabAsset: {fileID: 0}
@@ -1540,11 +1558,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingPos: {fileID: 0}
   resourceList: []
-  north: {fileID: 0}
-  east: {fileID: 0}
+  north: {fileID: 1134708087}
+  east: {fileID: 789433725}
   south: {fileID: 0}
   west: {fileID: 0}
-  northArrowSprite: {fileID: 0}
+  northArrowSprite: {fileID: 69377536}
   eastArrowSprite: {fileID: 2001530707}
   southArrowSprite: {fileID: 0}
   westArrowSprite: {fileID: 0}
@@ -1919,7 +1937,7 @@ PrefabInstance:
     - target: {fileID: 4296973284171280825, guid: 15d1e25dabc8cdf4c947bb206556aa01,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4296973284171280825, guid: 15d1e25dabc8cdf4c947bb206556aa01,
         type: 3}
@@ -1946,6 +1964,12 @@ PrefabInstance:
 --- !u!4 &485230490 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4296973284171280825, guid: 15d1e25dabc8cdf4c947bb206556aa01,
+    type: 3}
+  m_PrefabInstance: {fileID: 485230489}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &485230491 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6868813467453624415, guid: 15d1e25dabc8cdf4c947bb206556aa01,
     type: 3}
   m_PrefabInstance: {fileID: 485230489}
   m_PrefabAsset: {fileID: 0}
@@ -2398,6 +2422,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 590138825}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &590138827 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3151756683516826927, guid: 108fff16b0621974d8abd9fcf9611e89,
+    type: 3}
+  m_PrefabInstance: {fileID: 590138825}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &606406975
 GameObject:
   m_ObjectHideFlags: 0
@@ -2813,14 +2843,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingPos: {fileID: 0}
   resourceList: []
-  north: {fileID: 0}
-  east: {fileID: 0}
-  south: {fileID: 0}
-  west: {fileID: 0}
-  northArrowSprite: {fileID: 0}
+  north: {fileID: 1721963182}
+  east: {fileID: 1232964597}
+  south: {fileID: 789433725}
+  west: {fileID: 1134708087}
+  northArrowSprite: {fileID: 914139320}
   eastArrowSprite: {fileID: 983143651}
-  southArrowSprite: {fileID: 0}
-  westArrowSprite: {fileID: 0}
+  southArrowSprite: {fileID: 201787558}
+  westArrowSprite: {fileID: 1883185910}
   boulderSprite: {fileID: 0}
   fallenTreeSprite: {fileID: 0}
 --- !u!4 &667478676
@@ -3195,14 +3225,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingPos: {fileID: 1822775060}
   resourceList: []
-  north: {fileID: 0}
-  east: {fileID: 0}
+  north: {fileID: 667478675}
+  east: {fileID: 1864947775}
   south: {fileID: 0}
-  west: {fileID: 0}
-  northArrowSprite: {fileID: 0}
+  west: {fileID: 407707636}
+  northArrowSprite: {fileID: 945831771}
   eastArrowSprite: {fileID: 15365076}
   southArrowSprite: {fileID: 0}
-  westArrowSprite: {fileID: 0}
+  westArrowSprite: {fileID: 1395049981}
   boulderSprite: {fileID: 0}
   fallenTreeSprite: {fileID: 0}
 --- !u!4 &789433726
@@ -3568,6 +3598,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 902622314}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &902622316 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6868813467453624415, guid: 15d1e25dabc8cdf4c947bb206556aa01,
+    type: 3}
+  m_PrefabInstance: {fileID: 902622314}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &904510619
 GameObject:
   m_ObjectHideFlags: 0
@@ -3767,6 +3803,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 914139318}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &914139320 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6868813467453624415, guid: 15d1e25dabc8cdf4c947bb206556aa01,
+    type: 3}
+  m_PrefabInstance: {fileID: 914139318}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &945831769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3842,6 +3884,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 945831769}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &945831771 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6868813467453624415, guid: 15d1e25dabc8cdf4c947bb206556aa01,
+    type: 3}
+  m_PrefabInstance: {fileID: 945831769}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &962158391
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3914,6 +3962,12 @@ PrefabInstance:
 --- !u!4 &962158392 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1477201637760152814, guid: b7afa17ef4c2f724faabe2a013eb5c64,
+    type: 3}
+  m_PrefabInstance: {fileID: 962158391}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &962158393 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6538789063795771638, guid: b7afa17ef4c2f724faabe2a013eb5c64,
     type: 3}
   m_PrefabInstance: {fileID: 962158391}
   m_PrefabAsset: {fileID: 0}
@@ -4073,6 +4127,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 973555678}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &973555680 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6868813467453624415, guid: 15d1e25dabc8cdf4c947bb206556aa01,
+    type: 3}
+  m_PrefabInstance: {fileID: 973555678}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &973625356
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4145,6 +4205,12 @@ PrefabInstance:
 --- !u!4 &973625357 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4296973284171280825, guid: 15d1e25dabc8cdf4c947bb206556aa01,
+    type: 3}
+  m_PrefabInstance: {fileID: 973625356}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &973625358 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6868813467453624415, guid: 15d1e25dabc8cdf4c947bb206556aa01,
     type: 3}
   m_PrefabInstance: {fileID: 973625356}
   m_PrefabAsset: {fileID: 0}
@@ -4761,6 +4827,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1047894113}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &1047894115 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6868813467453624415, guid: 15d1e25dabc8cdf4c947bb206556aa01,
+    type: 3}
+  m_PrefabInstance: {fileID: 1047894113}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1063729947
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4867,13 +4939,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingPos: {fileID: 2011813806}
   resourceList: []
-  north: {fileID: 0}
-  east: {fileID: 0}
-  south: {fileID: 0}
+  north: {fileID: 262748290}
+  east: {fileID: 667478675}
+  south: {fileID: 407707636}
   west: {fileID: 0}
-  northArrowSprite: {fileID: 0}
+  northArrowSprite: {fileID: 1047894115}
   eastArrowSprite: {fileID: 1156878795}
-  southArrowSprite: {fileID: 0}
+  southArrowSprite: {fileID: 962158393}
   westArrowSprite: {fileID: 0}
   boulderSprite: {fileID: 0}
   fallenTreeSprite: {fileID: 0}
@@ -5177,6 +5249,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1193241517}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &1193241519 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6538789063795771638, guid: b7afa17ef4c2f724faabe2a013eb5c64,
+    type: 3}
+  m_PrefabInstance: {fileID: 1193241517}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1232964596
 GameObject:
   m_ObjectHideFlags: 0
@@ -5208,14 +5286,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingPos: {fileID: 0}
   resourceList: []
-  north: {fileID: 0}
-  east: {fileID: 0}
-  south: {fileID: 0}
-  west: {fileID: 0}
-  northArrowSprite: {fileID: 0}
+  north: {fileID: 1259573154}
+  east: {fileID: 180206210}
+  south: {fileID: 1864947775}
+  west: {fileID: 667478675}
+  northArrowSprite: {fileID: 902622316}
   eastArrowSprite: {fileID: 833375677}
-  southArrowSprite: {fileID: 0}
-  westArrowSprite: {fileID: 0}
+  southArrowSprite: {fileID: 1249825096}
+  westArrowSprite: {fileID: 75536292}
   boulderSprite: {fileID: 0}
   fallenTreeSprite: {fileID: 0}
 --- !u!4 &1232964598
@@ -5310,6 +5388,12 @@ PrefabInstance:
 --- !u!4 &1249825095 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1477201637760152814, guid: b7afa17ef4c2f724faabe2a013eb5c64,
+    type: 3}
+  m_PrefabInstance: {fileID: 1249825094}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1249825096 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6538789063795771638, guid: b7afa17ef4c2f724faabe2a013eb5c64,
     type: 3}
   m_PrefabInstance: {fileID: 1249825094}
   m_PrefabAsset: {fileID: 0}
@@ -5485,14 +5569,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingPos: {fileID: 0}
   resourceList: []
-  north: {fileID: 0}
+  north: {fileID: 180206210}
   east: {fileID: 0}
   south: {fileID: 0}
-  west: {fileID: 0}
-  northArrowSprite: {fileID: 0}
+  west: {fileID: 1864947775}
+  northArrowSprite: {fileID: 485230491}
   eastArrowSprite: {fileID: 0}
   southArrowSprite: {fileID: 0}
-  westArrowSprite: {fileID: 0}
+  westArrowSprite: {fileID: 2066835028}
   boulderSprite: {fileID: 0}
   fallenTreeSprite: {fileID: 0}
 --- !u!4 &1291795535
@@ -5508,8 +5592,8 @@ Transform:
   m_Children:
   - {fileID: 7569815}
   - {fileID: 378147457}
-  - {fileID: 2066835027}
   - {fileID: 485230490}
+  - {fileID: 2066835027}
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5746,6 +5830,12 @@ PrefabInstance:
 --- !u!4 &1395049980 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1228972431103887945, guid: 108fff16b0621974d8abd9fcf9611e89,
+    type: 3}
+  m_PrefabInstance: {fileID: 1395049979}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1395049981 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3151756683516826927, guid: 108fff16b0621974d8abd9fcf9611e89,
     type: 3}
   m_PrefabInstance: {fileID: 1395049979}
   m_PrefabAsset: {fileID: 0}
@@ -6790,11 +6880,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingPos: {fileID: 0}
   resourceList: []
-  north: {fileID: 0}
-  east: {fileID: 0}
+  north: {fileID: 1232964597}
+  east: {fileID: 1291795534}
   south: {fileID: 0}
-  west: {fileID: 0}
-  northArrowSprite: {fileID: 0}
+  west: {fileID: 789433725}
+  northArrowSprite: {fileID: 973555680}
   eastArrowSprite: {fileID: 1578251582}
   southArrowSprite: {fileID: 0}
   westArrowSprite: {fileID: 0}
@@ -6971,6 +7061,12 @@ PrefabInstance:
 --- !u!4 &1883185909 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1228972431103887945, guid: 108fff16b0621974d8abd9fcf9611e89,
+    type: 3}
+  m_PrefabInstance: {fileID: 1883185908}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1883185910 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3151756683516826927, guid: 108fff16b0621974d8abd9fcf9611e89,
     type: 3}
   m_PrefabInstance: {fileID: 1883185908}
   m_PrefabAsset: {fileID: 0}
@@ -7545,7 +7641,7 @@ PrefabInstance:
     - target: {fileID: 1228972431103887945, guid: 108fff16b0621974d8abd9fcf9611e89,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1228972431103887945, guid: 108fff16b0621974d8abd9fcf9611e89,
         type: 3}
@@ -7567,6 +7663,12 @@ PrefabInstance:
 --- !u!4 &2066835027 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1228972431103887945, guid: 108fff16b0621974d8abd9fcf9611e89,
+    type: 3}
+  m_PrefabInstance: {fileID: 2066835026}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &2066835028 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3151756683516826927, guid: 108fff16b0621974d8abd9fcf9611e89,
     type: 3}
   m_PrefabInstance: {fileID: 2066835026}
   m_PrefabAsset: {fileID: 0}
