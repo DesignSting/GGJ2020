@@ -19,6 +19,12 @@ public class Resource : MonoBehaviour
     [Space(10)]
     public float wetModifer;
     public float snowModifer;
+    public float baseTime;
+
+    public void ApplyModifer()
+    {
+
+    }
 }
 
 public enum typeResource

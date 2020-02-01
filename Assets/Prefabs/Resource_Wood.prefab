@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5728855985678235991}
   m_Layer: 0
   m_Name: Resource_Wood
-  m_TagString: Untagged
+  m_TagString: Resource
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52,6 +52,8 @@ MonoBehaviour:
   sunSprite: {fileID: 0}
   wetSprite: {fileID: 0}
   snowSprite: {fileID: 0}
+  wetModifer: 0
+  snowModifer: 0
 --- !u!212 &5728855985678235991
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -87,8 +89,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 877937445
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e0b8a3826d585044487cc6ca1f044d3e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

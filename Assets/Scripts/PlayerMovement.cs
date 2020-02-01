@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 endPos;
     private float t;
     [SerializeField] private bool canMove;
+    [SerializeField] private bool canCollect;
 
     [Space(15)]
     public Sprite northSprite;
@@ -82,24 +83,35 @@ public class PlayerMovement : MonoBehaviour
                     case Direction.North:
                         GetComponent<SpriteRenderer>().sprite = northSprite;
                         canMove = northCollider.ReturnCanMove();
+                        canCollect = northCollider.ReturnCanCollect();
                         break;
                     case Direction.East:
                         GetComponent<SpriteRenderer>().sprite = eastSprite;
                         canMove = eastCollider.ReturnCanMove();
+                        canCollect = eastCollider.ReturnCanCollect();
                         break;
                     case Direction.South:
                         GetComponent<SpriteRenderer>().sprite = southSprite;
                         canMove = southCollider.ReturnCanMove();
+                        canCollect = southCollider.ReturnCanCollect();
                         break;
                     case Direction.West:
                         GetComponent<SpriteRenderer>().sprite = westSprite;
                         canMove = westCollider.ReturnCanMove();
+                        canCollect = westCollider.ReturnCanCollect();
                         break;
                 }
                 if (canMove)
                     StartCoroutine(Move(transform));
                 else
                     canMove = true;
+            }
+        }
+        if(canCollect)
+        {
+            if(Input.GetKeyUp(KeyCode.Space))
+            {
+                Debug.Log("I am pressing the space button on this");
             }
         }
     }
