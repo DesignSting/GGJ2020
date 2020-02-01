@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -29,8 +30,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float timer;
     [SerializeField] private int diceRoll;
     private bool newDay;
+    public Image countdownBG;
+    public Image countdownFG;
 
-    
+
 
     private Weather DecideWeather()
     {
@@ -70,7 +73,32 @@ public class GameManager : MonoBehaviour
         Weather w = DecideWeather();
         AreaManager.Instance.RecieveNewDay(w, diceRoll);
     }
-    
+
+    public void CollectResource(float timeToCollect, Resource res)
+    {
+        Debug.Log(timeToCollect + " : " + res.transform.position);
+        Vector3 toScreen = Camera.main.WorldToScreenPoint(res.transform.position);
+        countdownBG.transform.position = toScreen;
+        StartCoroutine(Collect(timeToCollect));
+    }
+
+    IEnumerator Collect(float f)
+    {
+        countdownBG.gameObject.SetActive(true);
+        float timer = f;
+        FindObjectOfType<PlayerMovement>().SetPlayerLocked(true);
+        while (timer > 0)
+        {
+            timer -= Time.deltaTime;
+            countdownFG.fillAmount = timer / f;
+
+            yield return null;
+        }
+        FindObjectOfType<PlayerMovement>().SetPlayerLocked(false);
+        countdownBG.gameObject.SetActive(false);
+
+    }
+
 }
 
 public enum Weather

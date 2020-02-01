@@ -49,7 +49,7 @@ public class TransitionBetweenAreas : MonoBehaviour
         {
             timer += Time.deltaTime;
 
-            if (timer > 2.0f)
+            if (timer > 0.5f)
             {
                 AreaManager.Instance.ChangeToNewArea(nextArea, direction);
                 timer = 0;

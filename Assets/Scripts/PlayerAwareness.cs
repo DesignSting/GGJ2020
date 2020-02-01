@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAwareness : MonoBehaviour
 {
     private bool canMove = true;
-    private bool canCollect;
+    [SerializeField] private bool canCollect;
     private bool isCollecting;
     private Resource currentResource;
 
@@ -50,27 +50,8 @@ public class PlayerAwareness : MonoBehaviour
 
     public void CollectResource()
     {
-        if(currentResource.ReturnCanUse())
-        {
-            StartCoroutine(Collect());
-        }
-    }
-
-    IEnumerator Collect()
-    {
-        isCollecting = true;
-        float timer = 0.0f;
         float timeToCollect = currentResource.timeToHarvest;
-
-        while( timer < timeToCollect)
-        {
-            timer += Time.deltaTime;
-
-
-            yield return null;
-        }
-
-
-        isCollecting = false;
+        Debug.Log("Collect: " + currentResource.name + " Time: " + timeToCollect + " Pos: " + currentResource.transform.position );
+        GameManager.Instance.CollectResource(timeToCollect, currentResource);
     }
 }

@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private float t;
     [SerializeField] private bool canMove;
     [SerializeField] private bool canCollect;
+    [SerializeField] private bool playerLocked;
 
     [Space(15)]
     public Sprite northSprite;
@@ -25,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
     public PlayerAwareness eastCollider;
     public PlayerAwareness southCollider;
     public PlayerAwareness westCollider;
+
+    private PlayerAwareness collectable;
 
     
     public IEnumerator Move(Transform entity)
@@ -41,14 +44,42 @@ public class PlayerMovement : MonoBehaviour
             entity.position = Vector3.Lerp(startPos, endPos, t);
             yield return null;
         }
-
+        CheckCurrentDirection();
         isMoving = false;
+    }
+
+    public void SetPlayerLocked(bool b)
+    {
+        playerLocked = b;
+    }
+
+    public void CheckCurrentDirection()
+    {
+        switch (currentDir)
+        {
+            case Direction.North:
+                canCollect = northCollider.ReturnCanCollect();
+                collectable = northCollider;
+                break;
+            case Direction.East:
+                canCollect = eastCollider.ReturnCanCollect();
+                collectable = eastCollider;
+                break;
+            case Direction.South:
+                canCollect = southCollider.ReturnCanCollect();
+                collectable = southCollider;
+                break;
+            case Direction.West:
+                canCollect = westCollider.ReturnCanCollect();
+                collectable = westCollider;
+                break;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!isMoving)
+        if(!isMoving && !playerLocked)
         {
             input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
             if (Mathf.Abs(input.x) > Mathf.Abs(input.y))
@@ -82,35 +113,35 @@ public class PlayerMovement : MonoBehaviour
                     case Direction.North:
                         GetComponent<SpriteRenderer>().sprite = northSprite;
                         canMove = northCollider.ReturnCanMove();
-                        canCollect = northCollider.ReturnCanCollect();
                         break;
                     case Direction.East:
                         GetComponent<SpriteRenderer>().sprite = eastSprite;
                         canMove = eastCollider.ReturnCanMove();
-                        canCollect = eastCollider.ReturnCanCollect();
                         break;
                     case Direction.South:
                         GetComponent<SpriteRenderer>().sprite = southSprite;
                         canMove = southCollider.ReturnCanMove();
-                        canCollect = southCollider.ReturnCanCollect();
                         break;
                     case Direction.West:
                         GetComponent<SpriteRenderer>().sprite = westSprite;
                         canMove = westCollider.ReturnCanMove();
-                        canCollect = westCollider.ReturnCanCollect();
                         break;
                 }
+                CheckCurrentDirection();
                 if (canMove)
                     StartCoroutine(Move(transform));
                 else
                     canMove = true;
             }
         }
+
+
         if(canCollect)
         {
             if(Input.GetKeyUp(KeyCode.Space))
             {
-                Debug.Log("I am pressing the space button on this");
+                Debug.Log("Space is Pressed");
+                collectable.CollectResource();
             }
         }
     }
