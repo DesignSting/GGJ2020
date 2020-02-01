@@ -136,11 +136,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        if(canCollect)
+        if(canCollect && !playerLocked)
         {
             if(Input.GetKeyUp(KeyCode.Space))
             {
-                Debug.Log("Space is Pressed");
                 collectable.CollectResource();
             }
         }

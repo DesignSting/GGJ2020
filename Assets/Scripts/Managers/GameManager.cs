@@ -84,7 +84,9 @@ public class GameManager : MonoBehaviour
 
     IEnumerator Collect(float f)
     {
+        Debug.Log("Collect");
         countdownBG.gameObject.SetActive(true);
+        Debug.Log(countdownBG.isActiveAndEnabled);
         float timer = f;
         FindObjectOfType<PlayerMovement>().SetPlayerLocked(true);
         while (timer > 0)

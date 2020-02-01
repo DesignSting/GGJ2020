@@ -51,7 +51,6 @@ public class PlayerAwareness : MonoBehaviour
     public void CollectResource()
     {
         float timeToCollect = currentResource.timeToHarvest;
-        Debug.Log("Collect: " + currentResource.name + " Time: " + timeToCollect + " Pos: " + currentResource.transform.position );
         GameManager.Instance.CollectResource(timeToCollect, currentResource);
     }
 }
