@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be5148d6edca26c44b5ae8991f1f2565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 0
+  amount: 10
   timeToHarvest: 0
   currentWeather: {fileID: 0}
   canUse: 0

@@ -25,9 +25,7 @@ public class GameManager : MonoBehaviour
     public int woodResource;
     public int mudResource;
     public int berriesResource;
-    public TMP_InputField inputField_01;
-    public TMP_InputField inputField_02;
-    public Button startButton;
+
     public PlayerMovement player;
 
     [Space(20)]
@@ -37,53 +35,12 @@ public class GameManager : MonoBehaviour
     private bool firstRollGood;
     private bool secondRollGood;
     private bool newDay;
+
+    [Space(15)]
     public Image countdownBG;
     public Image countdownFG;
 
-
-
-    public void CheckDiceInput(TMP_InputField inputField)
-    {
-        string s = inputField.text;
-        int dice = int.Parse(s);
-        if (dice > 0 && dice <= 20)
-        {
-            if(inputField == inputField_01)
-            {
-                diceRoll_01 = dice;
-                firstRollGood = true;
-                inputField_02.interactable = true;
-                inputField_02.Select();
-            }
-            if(inputField == inputField_02)
-            {
-                diceRoll_02 = dice;
-                secondRollGood = true;
-                startButton.Select();
-            }
-            inputField.text = "SUBMITTED";
-            inputField.interactable = false;
-
-        }
-        else
-        {
-            inputField.text = "INVALID";
-        }
-        CheckStartButton();
-    }
-
-    private void CheckStartButton()
-    {
-        if(firstRollGood && secondRollGood)
-        {
-            startButton.interactable = true;
-        }
-        else
-        {
-            startButton.interactable = false;
-        }
-    }
-
+    
     public void StartDay()
     {
         Debug.Log(diceRoll_01 + " : " + diceRoll_02);
@@ -98,9 +55,19 @@ public class GameManager : MonoBehaviour
         StartCoroutine(Collect(timeToCollect, res));
     }
 
+    public void SetFirstDiceRoll(int i)
+    {
+        diceRoll_01 = i;
+    }
+
     public int ReturnFirstDiceRoll()
     {
         return diceRoll_01;
+    }
+
+    public void SetSecondDiceRoll(int i)
+    {
+        diceRoll_02 = i;
     }
 
     public int ReturnSecondDiceRoll()
@@ -124,14 +91,8 @@ public class GameManager : MonoBehaviour
         }
         FindObjectOfType<PlayerMovement>().SetPlayerLocked(false);
         countdownBG.gameObject.SetActive(false);
+        FindObjectOfType<UIManager>().UpdateResources(r);
         r.Harvested();
-    }
-
-    private void Start()
-    {
-        CheckStartButton();
-        inputField_01.Select();
-        inputField_02.interactable = false;
     }
 }
 

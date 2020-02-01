@@ -55,6 +55,7 @@ public class AreaManager : MonoBehaviour
             if (a.westArrowSprite != null)
                 a.westArrowSprite.gameObject.SetActive(false);
             a.isUsed = false;
+            a.ResetResources();
             a.gameObject.SetActive(false);
         }
 
@@ -128,22 +129,10 @@ public class AreaManager : MonoBehaviour
          * 
          * 
          * */
-
+        
         foreach (Area ua in useableAreas)
         {
             ua.isUsed = true;
-            //switch (currentWeather)
-            //{
-            //    case Weather.Sun:
-            //        GameObject.Find(ua.name + "/Background").GetComponent<SpriteRenderer>().sprite = sunBackground;
-            //        break;
-            //    case Weather.Wet:
-            //        GameObject.Find(ua.name + "/Background").GetComponent<SpriteRenderer>().sprite = wetBackground;
-            //        break;
-            //    case Weather.Snow:
-            //        GameObject.Find(ua.name + "/Background").GetComponent<SpriteRenderer>().sprite = snowBackground;
-            //        break;
-            //}
 
         }
         foreach(Area ua in useableAreas)
@@ -192,6 +181,24 @@ public class AreaManager : MonoBehaviour
     public Weather ReturnCurrentWeather()
     {
         return currentWeather;
+    }
+
+    public Sprite ReturnBackground()
+    {
+        Sprite toSend = null;
+        switch (currentWeather)
+        {
+            case Weather.Sun:
+                toSend =  sunBackground;
+                break;
+            case Weather.Wet:
+                toSend =  wetBackground;
+                break;
+            case Weather.Snow:
+                toSend = snowBackground;
+                break;
+        }
+        return toSend;
     }
 
     private void Start()

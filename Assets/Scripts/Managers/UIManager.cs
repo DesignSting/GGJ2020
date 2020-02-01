@@ -43,23 +43,21 @@ public class UIManager : MonoBehaviour
         timerText.text = time;
     }
 
-    public void UpdateResources(TypeResource resource, int amount)
+    public void UpdateResources(Resource r)
     {
-        switch (resource)
+        switch (r.resource)
         {
             case TypeResource.Wood:
-                woodAmount += amount;
-                woodAmountText.text = woodAmount.ToString();
+                woodAmount += r.amount;
                 break;
             case TypeResource.Berries:
-                berriesAmount += amount;
-                berriesAmountText.text = berriesAmount.ToString();
+                berriesAmount += r.amount;
                 break;
             case TypeResource.Mud:
-                mudAmount += amount;
-                mudAmountText.text = mudAmount.ToString();
+                mudAmount += r.amount;
                 break;
         }
+        UpdateResources();
     }
 
     public void UpdateResources(int wood, int berries, int mud)
@@ -67,6 +65,13 @@ public class UIManager : MonoBehaviour
         woodAmount = wood;
         berriesAmount = berries;
         mudAmount = mud;
+        woodAmountText.text = woodAmount.ToString("000");
+        berriesAmountText.text = berriesAmount.ToString("000");
+        mudAmountText.text = mudAmount.ToString("000");
+    }
+
+    public void UpdateResources()
+    {
         woodAmountText.text = woodAmount.ToString("000");
         berriesAmountText.text = berriesAmount.ToString("000");
         mudAmountText.text = mudAmount.ToString("000");

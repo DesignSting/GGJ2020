@@ -56,7 +56,9 @@ public class Area : MonoBehaviour
 
         currentWeather = AreaManager.Instance.ReturnCurrentWeather();
 
-        
+        SpriteRenderer temp = GameObject.Find("Background").GetComponent<SpriteRenderer>();
+        //SpriteRenderer sr = GameObject.Find(ua.name + "/Background").GetComponent<SpriteRenderer>();
+        temp.sprite = AreaManager.Instance.ReturnBackground();
 
         foreach (Resource r in resourceList)
         {
@@ -120,6 +122,14 @@ public class Area : MonoBehaviour
         }
         gameObject.SetActive(this);
         FindObjectOfType<PlayerMovement>().SetPlayerLocked(false);
+    }
+
+    public void ResetResources()
+    {
+        foreach(Resource r in resourceList)
+        {
+            r.ResetCanUse();
+        }
     }
 }
 
