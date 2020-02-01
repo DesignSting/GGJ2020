@@ -51,6 +51,7 @@ public class TransitionBetweenAreas : MonoBehaviour
 
             if (timer > 0.5f)
             {
+                FindObjectOfType<PlayerMovement>().SetPlayerLocked(true);
                 AreaManager.Instance.ChangeToNewArea(nextArea, direction);
                 timer = 0;
             }

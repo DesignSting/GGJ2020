@@ -44,5 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaList: []
+  useableAreas: []
   previousArea: {fileID: 0}
   currentArea: {fileID: 0}

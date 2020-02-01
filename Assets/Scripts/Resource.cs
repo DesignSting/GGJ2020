@@ -40,7 +40,7 @@ public class Resource : MonoBehaviour
         }
         else
         {
-            timeToHarvest = baseTime;
+            timeToHarvest = baseTime * sunModifer;
         }
 
     }

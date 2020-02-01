@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
     public int mudResource;
     public int berriesResource;
     public TMP_InputField inputField;
+    public PlayerMovement player;
 
     [Space(20)]
     [SerializeField] private float timer;
@@ -34,23 +36,6 @@ public class GameManager : MonoBehaviour
     public Image countdownFG;
 
 
-
-    private Weather DecideWeather()
-    {
-        int i = Random.Range(0, 20);
-        if(i >= 0 && i < 8)
-        {
-            return Weather.Sun;
-        }
-        else if (i >= 8 && i < 14)
-        {
-            return Weather.Snow;
-        }
-        else
-        {
-            return Weather.Wet;
-        }
-    }
 
     public void CheckDiceInput(TMP_InputField inputField)
     {
@@ -70,8 +55,9 @@ public class GameManager : MonoBehaviour
 
     private void StartDay(int diceRoll)
     {
-        Weather w = DecideWeather();
-        AreaManager.Instance.RecieveNewDay(w, diceRoll);
+        player.gameObject.SetActive(true);
+        SceneManager.LoadScene("MainScene_Testing");
+        FindObjectOfType<UIManager>().UpdateResources(woodResource, berriesResource, mudResource);
     }
 
     public void CollectResource(float timeToCollect, Resource res)
@@ -79,6 +65,11 @@ public class GameManager : MonoBehaviour
         Vector3 toScreen = Camera.main.WorldToScreenPoint(res.transform.position);
         countdownBG.transform.position = toScreen;
         StartCoroutine(Collect(timeToCollect));
+    }
+
+    public int ReturnDiceRoll()
+    {
+        return diceRoll;
     }
 
     IEnumerator Collect(float f)
