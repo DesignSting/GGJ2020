@@ -833,11 +833,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a43d7e3f7cbc91c478b4bf7cd1ff0183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  woodResource: 0
-  mudResource: 0
-  berriesResource: 0
-  inputField: {fileID: 286656616}
+  player: {fileID: 0}
   timer: 0
-  diceRoll: 0
+  diceRoll_01: 0
+  diceRoll_02: 0
   countdownBG: {fileID: 1019837489}
   countdownFG: {fileID: 116086623}
+  woodChomps: []
+  mudSlops: []
+  bushRushel:
+  - {fileID: 8300000, guid: 1a547d5f2bc1a0e49b834d6aa61070c1, type: 3}
+  - {fileID: 8300000, guid: 13cae43d46a2b554a8fb4c5da708a3fb, type: 3}
+  - {fileID: 8300000, guid: 43147d4d810c1ed4f87d5e8b936c1e52, type: 3}
+  - {fileID: 8300000, guid: 2791cb0f7e4b62945986321d0a9fbadf, type: 3}
+  - {fileID: 8300000, guid: 1574625ae6d918f4c8e6453883e92f22, type: 3}
+  - {fileID: 8300000, guid: e7904237a361f2a47bf93a82b9b91f82, type: 3}
+  - {fileID: 8300000, guid: 9ccbe2c4d384e2f4098c1c1975255a65, type: 3}
