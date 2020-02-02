@@ -9,6 +9,9 @@ public class UIManager : MonoBehaviour
     public TMP_Text woodAmountText;
     public TMP_Text mudAmountText;
     public TMP_Text berriesAmountText;
+    public TMP_Text woodReqText;
+    public TMP_Text berriesReqtText;
+    public TMP_Text mudReqText;
     public Image UIBanner;
     [SerializeField] private int woodAmount;
     [SerializeField] private int mudAmount;
