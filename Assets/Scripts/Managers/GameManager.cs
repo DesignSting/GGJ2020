@@ -48,8 +48,12 @@ public class GameManager : MonoBehaviour
     private AudioSource audioSource;
     private Queue<AudioClip> inQueue = new Queue<AudioClip>();
 
-
+    private List<UpgradeStat> upgradeStatList = new List<UpgradeStat>();
     private bool endedDay;
+    private bool firstComplete;
+    private bool secondComplete;
+    private bool thirdComplete;
+    private bool fourthComplete;
 
     public void EndDay()
     {
@@ -65,6 +69,39 @@ public class GameManager : MonoBehaviour
             FindObjectOfType<UIManager>().EndRound();
             currentDay++;
         }
+    }
+
+    public void FinishQuadrant(int i)
+    {
+        if(i == 1)
+        {
+            firstComplete = true;
+        }
+
+        if (i == 2)
+        {
+            secondComplete = true;
+        }
+
+        if (i == 3)
+        {
+            thirdComplete = true;
+        }
+
+        if (i == 4)
+        {
+            fourthComplete = true;
+        }
+    }
+
+    public void SetUpgradeStatList(List<UpgradeStat> list)
+    {
+        upgradeStatList = list;
+    }
+
+    public List<UpgradeStat> ReturnUpgradeStatList()
+    {
+        return upgradeStatList;
     }
 
     public void CollectResource(float timeToCollect, Resource res)
@@ -179,6 +216,16 @@ public class GameManager : MonoBehaviour
         {
             inQueue.Clear();
         }
+    }
+
+    public void PauseMenu()
+    {
+
+    }
+
+    public void QuitButton()
+    {
+        Application.Quit();
     }
 
     private void Update()

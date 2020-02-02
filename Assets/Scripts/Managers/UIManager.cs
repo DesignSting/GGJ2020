@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
     public TMP_Text mudAmountText;
     public TMP_Text berriesAmountText;
     public TMP_Text woodReqText;
-    public TMP_Text berriesReqtText;
+    public TMP_Text berriesReqText;
     public TMP_Text mudReqText;
     public Image UIBanner;
     [SerializeField] private int woodAmount;
@@ -122,7 +122,19 @@ public class UIManager : MonoBehaviour
 
     public void DisplayUpgrade(int wood, int berries, int mud)
     {
+        woodReqText.text = "-" + wood.ToString();
+        berriesReqText.text = "-" + berries.ToString();
+        mudReqText.text = "-" + mud.ToString();
+        woodReqText.gameObject.SetActive(true);
+        berriesReqText.gameObject.SetActive(true);
+        mudReqText.gameObject.SetActive(true);
+    }
 
+    public void HideUpgrade()
+    {
+        woodReqText.gameObject.SetActive(false);
+        berriesReqText.gameObject.SetActive(false);
+        mudReqText.gameObject.SetActive(false);
     }
 
     private void DisplayTimeRemaining(float timer)
@@ -168,6 +180,27 @@ public class UIManager : MonoBehaviour
         woodAmountText.text = woodAmount.ToString("000");
         berriesAmountText.text = berriesAmount.ToString("000");
         mudAmountText.text = mudAmount.ToString("000");
+    }
+
+    public void UpgradeDam(UpgradeDam ud)
+    {
+        woodAmount -= ud.woodRequired;
+        berriesAmount -= ud.berriesRequired;
+        mudAmount -= ud.mudRequired;
+        HideUpgrade();
+        UpdateResources();
+    }
+    public bool CheckIfCanUpgrade(UpgradeDam ud)
+    {
+        DisplayUpgrade(ud.woodRequired, ud.berriesRequired, ud.mudRequired);
+        bool b = true;
+        if (ud.woodRequired > woodAmount)
+            b = false;
+        if (ud.berriesRequired > berriesAmount)
+            b = false;
+        if (ud.mudRequired > mudAmount)
+            b = false;
+        return b;
     }
 
     private void Start()

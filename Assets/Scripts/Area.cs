@@ -17,13 +17,13 @@ public class Area : MonoBehaviour
 
     [Space(15)]
     public SpriteRenderer northArrowSprite;
+    public SpriteRenderer northBoulder;
     public SpriteRenderer eastArrowSprite;
+    public SpriteRenderer eastBoulder;
     public SpriteRenderer southArrowSprite;
+    public SpriteRenderer southBoulder;
     public SpriteRenderer westArrowSprite;
-
-    [Space(15)]
-    public Sprite boulderSprite;
-    public Sprite fallenTreeSprite;
+    public SpriteRenderer westBoulder;
 
 
     public Weather currentWeatherTesting = Weather.Snow;
@@ -81,6 +81,11 @@ public class Area : MonoBehaviour
             if (north.isUsed)
             {
                 northArrowSprite.gameObject.SetActive(true);
+                northBoulder.gameObject.SetActive(false);
+            }
+            else
+            {
+                northBoulder.gameObject.SetActive(true);
             }
         }
         if (east != null)
@@ -88,6 +93,11 @@ public class Area : MonoBehaviour
             if (east.isUsed)
             {
                 eastArrowSprite.gameObject.SetActive(true);
+                northBoulder.gameObject.SetActive(false);
+            }
+            else
+            {
+                eastBoulder.gameObject.SetActive(true);
             }
         }
         if (south != null)
@@ -95,6 +105,11 @@ public class Area : MonoBehaviour
             if (south.isUsed)
             {
                 southArrowSprite.gameObject.SetActive(true);
+                southBoulder.gameObject.SetActive(false);
+            }
+            else
+            {
+                southBoulder.gameObject.SetActive(true);
             }
         }
         if (west != null)
@@ -102,6 +117,11 @@ public class Area : MonoBehaviour
             if (west.isUsed)
             {
                 westArrowSprite.gameObject.SetActive(true);
+                westBoulder.gameObject.SetActive(false);
+            }
+            else
+            {
+                westBoulder.gameObject.SetActive(true);
             }
         }
     }

@@ -1025,7 +1025,7 @@ MonoBehaviour:
   mudAmountText: {fileID: 7943916414656928931}
   berriesAmountText: {fileID: 7943916414000711439}
   woodReqText: {fileID: 6402107431325296293}
-  berriesReqtText: {fileID: 5732354934009108888}
+  berriesReqText: {fileID: 5732354934009108888}
   mudReqText: {fileID: 7746911143974776287}
   UIBanner: {fileID: 7943916412892450911}
   woodAmount: 20

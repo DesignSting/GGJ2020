@@ -3,7 +3,18 @@ guid: 6328428a2b061894bac3a6ce64148741
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - startingPos: {instanceID: 0}
+  - north: {instanceID: 0}
+  - east: {instanceID: 0}
+  - south: {instanceID: 0}
+  - west: {instanceID: 0}
+  - northArrowSprite: {instanceID: 0}
+  - eastArrowSprite: {instanceID: 0}
+  - southArrowSprite: {instanceID: 0}
+  - westArrowSprite: {instanceID: 0}
+  - boulderSprite: {fileID: 3909654880323549356, guid: bb8a391f2b054714688e4337c227b485,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
