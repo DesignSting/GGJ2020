@@ -157,6 +157,18 @@ public class StagingArea : MonoBehaviour
         {
             ud.nextUnlock.gameObject.SetActive(true);
         }
+
+        if(FindObjectOfType<GameManager>().currentDay > 7)
+        {
+            if(FindObjectOfType<GameManager>().ReturnWinState())
+            {
+                FindObjectOfType<UIManager>().WinState();
+            }
+            else
+            {
+                FindObjectOfType<UIManager>().LoseState();
+            }
+        }
     }
 }
 

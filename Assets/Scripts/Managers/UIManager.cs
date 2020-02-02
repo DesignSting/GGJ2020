@@ -31,6 +31,10 @@ public class UIManager : MonoBehaviour
     private float tickTimer;
     private int tickCounter;
 
+    public GameObject pausePanel;
+    private bool isPaused;
+    public GameObject endState;
+
     private void Update()
     {
         if (startTimer)
@@ -108,6 +112,7 @@ public class UIManager : MonoBehaviour
         timer = totalTimeAllowed;
         startTimer = true;
         tickCounter = 0;
+        GameManager.Instance.StartRound();
     }
 
     public void EndRound()
@@ -201,6 +206,36 @@ public class UIManager : MonoBehaviour
         if (ud.mudRequired > mudAmount)
             b = false;
         return b;
+    }
+
+    public void PauseGame()
+    {
+        if(startTimer)
+        {
+            startTimer = false;
+        }
+        if(!isPaused)
+        {
+            pausePanel.SetActive(true);
+            isPaused = true;
+        }
+        else
+        {
+            pausePanel.SetActive(false);
+            isPaused = false;
+        }
+    }
+
+    public void WinState()
+    {
+        endState.SetActive(true);
+        endState.GetComponentInChildren<TMP_Text>().text = "You Win!!";
+    }
+
+    public void LoseState()
+    {
+        endState.SetActive(true);
+        endState.GetComponentInChildren<TMP_Text>().text = "You Lose";
     }
 
     private void Start()

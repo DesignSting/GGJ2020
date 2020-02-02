@@ -54,6 +54,12 @@ public class GameManager : MonoBehaviour
     private bool secondComplete;
     private bool thirdComplete;
     private bool fourthComplete;
+    private bool inLevel;
+
+    public void StartRound()
+    {
+        inLevel = true;
+    }
 
     public void EndDay()
     {
@@ -68,7 +74,22 @@ public class GameManager : MonoBehaviour
             player.SetPlayerLocked(true);
             FindObjectOfType<UIManager>().EndRound();
             currentDay++;
+            inLevel = false;
         }
+    }
+
+    public bool ReturnWinState()
+    {
+        if (!firstComplete)
+            return false;
+        if (!secondComplete)
+            return false;
+        if (!thirdComplete)
+            return false;
+        if (!fourthComplete)
+            return false;
+
+        return true;
     }
 
     public void FinishQuadrant(int i)
@@ -218,9 +239,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void PauseMenu()
+    public bool ReturnGameState()
     {
-
+        return inLevel;
     }
 
     public void QuitButton()
@@ -228,6 +249,8 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
+
+    bool isPaused;
     private void Update()
     {
         if(endedDay)
@@ -236,6 +259,22 @@ public class GameManager : MonoBehaviour
             {
                 endedDay = false;
                 EndDay();
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            if (!isPaused)
+            {
+                FindObjectOfType<PlayerMovement>().SetPlayerLocked(true);
+                FindObjectOfType<UIManager>().PauseGame();
+                isPaused = true;
+            }
+            else
+            {
+                FindObjectOfType<PlayerMovement>().SetPlayerLocked(false);
+                FindObjectOfType<UIManager>().PauseGame();
+                isPaused = true;
             }
         }
     }
