@@ -93,7 +93,7 @@ public class Area : MonoBehaviour
             if (east.isUsed)
             {
                 eastArrowSprite.gameObject.SetActive(true);
-                northBoulder.gameObject.SetActive(false);
+                eastBoulder.gameObject.SetActive(false);
             }
             else
             {
