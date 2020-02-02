@@ -279,6 +279,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
