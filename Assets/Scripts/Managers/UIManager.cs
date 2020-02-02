@@ -210,19 +210,24 @@ public class UIManager : MonoBehaviour
 
     public void PauseGame()
     {
-        if(startTimer)
-        {
-            startTimer = false;
-        }
+
         if(!isPaused)
         {
             pausePanel.SetActive(true);
             isPaused = true;
+            if (GameManager.Instance.inLevel)
+            {
+                startTimer = false;
+            }
         }
         else
         {
             pausePanel.SetActive(false);
             isPaused = false;
+            if (GameManager.Instance.inLevel)
+            {
+                startTimer = true;
+            }
         }
     }
 

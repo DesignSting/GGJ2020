@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
     private bool secondComplete;
     private bool thirdComplete;
     private bool fourthComplete;
-    private bool inLevel;
+    public bool inLevel;
 
     public void StartRound()
     {
