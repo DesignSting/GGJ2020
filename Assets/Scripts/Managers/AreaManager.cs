@@ -149,23 +149,6 @@ public class AreaManager : MonoBehaviour
         currentArea = a;
     }
 
-    private Weather DecideWeather()
-    {
-        int i = Random.Range(0, 20);
-        if (i >= 0 && i < 8)
-        {
-            return Weather.Sun;
-        }
-        else if (i >= 8 && i < 14)
-        {
-            return Weather.Snow;
-        }
-        else
-        {
-            return Weather.Wet;
-        }
-    }
-
     public Weather ReturnCurrentWeather()
     {
         return currentWeather;
@@ -208,7 +191,7 @@ public class AreaManager : MonoBehaviour
 
     private void Start()
     {
-        currentWeather = DecideWeather();
+        currentWeather = GameManager.Instance.ReturnWeather();
         PlayBackgroundMusic();
         theFirstDiceRoll = GameManager.Instance.ReturnFirstDiceRoll();
         theSecondDiceRoll = GameManager.Instance.ReturnSecondDiceRoll();

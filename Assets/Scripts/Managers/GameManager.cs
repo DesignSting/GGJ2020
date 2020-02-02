@@ -19,10 +19,14 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
+        SetUpWeather();
         DontDestroyOnLoad(gameObject);
     }
 
     public PlayerMovement player;
+    public int totalDays;
+    public int currentDay;
+    public List<Weather> dailyWeather = new List<Weather>();
 
     [Space(20)]
     [SerializeField] private float timer;
@@ -59,6 +63,7 @@ public class GameManager : MonoBehaviour
             player.GetComponent<SpriteRenderer>().enabled = false;
             player.SetPlayerLocked(true);
             FindObjectOfType<UIManager>().EndRound();
+            currentDay++;
         }
     }
 
@@ -100,6 +105,29 @@ public class GameManager : MonoBehaviour
         }
         Debug.Log(totalTime);
         PlaySoundQueue();
+    }
+
+    public void SetUpWeather()
+    {
+        List<Weather> tempList = new List<Weather>();
+        tempList.Add(Weather.Sun);
+        tempList.Add(Weather.Sun);
+        tempList.Add(Weather.Sun);
+        tempList.Add(Weather.Sun);
+        tempList.Add(Weather.Wet);
+        tempList.Add(Weather.Wet);
+        tempList.Add(Weather.Snow);
+        while(dailyWeather.Count < 7)
+        {
+            int i = Random.Range(0, tempList.Count);
+            dailyWeather.Add(tempList[i]);
+            tempList.Remove(tempList[i]);
+        }
+    }
+
+    public Weather ReturnWeather()
+    {
+        return dailyWeather[currentDay];
     }
 
     private void PlaySoundQueue()

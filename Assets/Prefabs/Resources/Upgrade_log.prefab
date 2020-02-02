@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7145397776100305692}
   - component: {fileID: 2440693861730827728}
   - component: {fileID: 7357953050093387588}
+  - component: {fileID: 2693954901422667430}
   m_Layer: 5
   m_Name: Upgrade_log
   m_TagString: Untagged
@@ -26,7 +27,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8059037801613954158}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.0010384, y: 1.0010384, z: 1.0010384}
   m_Children:
@@ -88,7 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -118,6 +119,23 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2693954901422667430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8059037801613954158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 820dd9b6858ef7d4baa64e187218df58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  woodRequired: 0
+  berriesRequired: 0
+  mudRequired: 0
+  isLocked: 0
+  nextUnlock: {fileID: 0}
 --- !u!1 &8783711948869582379
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,7 +153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4232289081905409843
 RectTransform:
   m_ObjectHideFlags: 0

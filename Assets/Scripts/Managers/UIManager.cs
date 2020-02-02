@@ -117,6 +117,11 @@ public class UIManager : MonoBehaviour
         audioSource.Play();
     }
 
+    public void DisplayUpgrade(int wood, int berries, int mud)
+    {
+
+    }
+
     private void DisplayTimeRemaining(float timer)
     {
         float temp = timer / 60;
